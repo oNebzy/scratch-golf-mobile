@@ -45,7 +45,7 @@ export default function App() {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        {session && session.user ? <Auth /> : <TabNavigation />}
+        {session && session.user ? <TabNavigation /> : <Auth/>}
       </NavigationContainer>
     </PaperProvider>
   );
