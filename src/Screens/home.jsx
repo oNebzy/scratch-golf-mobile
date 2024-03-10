@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import React from 'react'
 
-export default function Home({ session, navigation }) {
+export default function Clubhouse({ session, navigation }) {
 
   useEffect(() => {
     if (session) getProfile()
@@ -10,7 +10,11 @@ export default function Home({ session, navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Text>Clubhouse</Text>
+      <Text>need: </Text>
+      <Text>play round buttom</Text>
+      <Text>Bag</Text>\
+      <Text>profile?</Text>
     </View>
   )
 }
