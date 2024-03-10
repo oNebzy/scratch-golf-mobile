@@ -1,17 +1,19 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import Home from '../Screens/home';
+import Clubhouse from '../Screens/clubhouse';
 import Stats from '../Screens/stats';
+import Play from '../Screens/play';
 import Settings from '../Screens/settings';
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 const Tab = createMaterialBottomTabNavigator();
 
 const TabNavigation = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Clubhouse"
       activeColor="#5E8D6B"
       inactiveColor="#4E4E4E"
       labeled={false}
@@ -22,21 +24,31 @@ const TabNavigation = () => {
       }}
     >
       <Tab.Screen 
-        name="Home" 
-        component={Home}
+        name="Clubhouse" 
+        component={Clubhouse}
         
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+            <MaterialCommunityIcons name="home" color={color} size={32} />
           ),
         }} 
       />
       <Tab.Screen 
         name="Stats" 
-        component={Stats} 
+        component={Stats}
+        
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+            <MaterialCommunityIcons name="chart-bar" color={color} size={32} />
+          ),
+        }} 
+      />
+      <Tab.Screen 
+        name="Play" 
+        component={Play} 
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="golf-tee" color={color} size={32} />
           ),
         }} 
       />
@@ -45,7 +57,7 @@ const TabNavigation = () => {
         component={Settings} 
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="gear" color={color} size={26} />
+            <MaterialCommunityIcons name="account-cog-outline" color={color} size={32} />
           ),
         }} 
       />
