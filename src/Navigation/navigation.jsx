@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import Home from '../Screens/home';
 import Stats from '../Screens/stats';
+import Settings from '../Screens/settings';
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -36,6 +37,15 @@ const TabNavigation = () => {
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" color={color} size={26} />
+          ),
+        }} 
+      />
+      <Tab.Screen 
+        name="Settings" 
+        component={Settings} 
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="gear" color={color} size={26} />
           ),
         }} 
       />
