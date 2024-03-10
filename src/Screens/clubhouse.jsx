@@ -13,7 +13,7 @@ export default function Clubhouse({ session, navigation }) {
       <Text>Clubhouse</Text>
       <Text>need: </Text>
       <Text>play round buttom</Text>
-      <Text>Bag</Text>\
+      <Text>Bag</Text>
       <Text>profile?</Text>
     </View>
   )
