@@ -62,7 +62,20 @@ export default function Clubhouse({ session, navigation }) {
         </View>
       </View>
       <View style={styles.body}>
-
+        <Text>Rounds</Text>
+        <View style={styles.roundCountsContainer}>
+          <View style={styles.roundCount}>
+          <Text>27</Text>
+          <Text>total</Text>
+          </View>
+          <View style={styles.roundCount}>
+          <Text>89.7</Text>
+          <Text>avg</Text>
+          </View>
+          
+          
+        </View>
+        
       </View>
       <Text>Bag</Text>
     </View>
@@ -98,4 +111,7 @@ const styles = StyleSheet.create({
   profileRightColumn: {
 
   },
+  roundCountsContainer: {
+    flexDirection: 'row'
+  }
 });
