@@ -10,7 +10,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const Tab = createMaterialBottomTabNavigator();
 
-const TabNavigation = () => {
+const TabNavigation = ({session}) => {
+
   return (
     <Tab.Navigator
       initialRouteName="Clubhouse"
@@ -25,8 +26,7 @@ const TabNavigation = () => {
     >
       <Tab.Screen 
         name="Clubhouse" 
-        component={Clubhouse}
-        
+        children={() => <Clubhouse session={session}/>}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={32} />
