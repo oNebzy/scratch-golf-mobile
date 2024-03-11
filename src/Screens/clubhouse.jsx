@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import React from 'react'
 import { supabase } from '../Supabase/supabase'
+import { useTheme } from 'react-native-paper'
 
 export default function Clubhouse({ session, navigation }) {
   
@@ -53,10 +54,16 @@ export default function Clubhouse({ session, navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>Clubhouse</Text>
-      <Text>need: </Text>
-      <Text>{firstName} {lastName}</Text>
-      <Text>{handicapIndex}</Text>
+      <View style={styles.header}>
+        <View style={styles.profilePicture}></View>
+        <View style={styles.profileRightColumn}>
+          <Text>{firstName} {lastName}</Text>
+          <Text>{handicapIndex} hcp</Text>
+        </View>
+      </View>
+      <View style={styles.body}>
+
+      </View>
       <Text>Bag</Text>
     </View>
   )
@@ -66,8 +73,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#5E8D6B',
+  },
+  header: {
+    width: '100%',
+    backgroundColor: '#5E8D6B',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
+    paddingTop: '15%',
+    marginBottom: '4%',
+  },
+  body: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#D9D9D9',
+  },
+  profilePicture: {
+    width: 120,
+    height: 120,
+    borderRadius: 75,
+    backgroundColor: 'grey'
+  },
+  profileRightColumn: {
+
   },
 });
