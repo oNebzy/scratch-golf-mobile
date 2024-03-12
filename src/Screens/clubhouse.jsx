@@ -58,7 +58,7 @@ export default function Clubhouse({ session, navigation }) {
     try{
       const {data, error} = await supabase
         .from('clubs')
-        .select(`*`)
+        .select(`*, club_models (*)`)
         .eq('player_id', session?.user.id)
 
       if (error) {
