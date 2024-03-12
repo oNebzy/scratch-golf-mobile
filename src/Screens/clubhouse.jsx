@@ -12,12 +12,15 @@ export default function Clubhouse({ session, navigation }) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [handicapIndex, setHandicapIndex] = useState('')
+  
   const [golfBag, setGolfBag] = useState([])
+  const [rounds, setRounds] = useState([])
   
 
   useEffect(() => {
     if (session) {
       getProfile()
+      getGetRoundsNoStats()
       getGolfBag()
     }
   }, [session])
@@ -66,6 +69,29 @@ export default function Clubhouse({ session, navigation }) {
       }
       else {
         setGolfBag(data)
+        console.log(data)
+      }
+    }
+    catch (error) {
+      console.log(error)
+      if (error instanceof Error) {
+        Alert.alert(error.message)
+      }
+    }
+  }
+
+  async function getGetRoundsNoStats(){
+    try{
+      const {data, error} = await supabase
+        .from('rounds')
+        .select(`*`)
+        .eq('player_id', session?.user.id)
+
+      if (error) {
+        throw error
+      }
+      else {
+        setRounds(data)
         console.log(data)
       }
     }
