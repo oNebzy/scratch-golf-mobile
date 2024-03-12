@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { Alert, StyleSheet, View, Text } from 'react-native'
 import React from 'react'
 import { supabase } from '../Supabase/supabase'
 import { useTheme } from 'react-native-paper'
@@ -12,11 +12,13 @@ export default function Clubhouse({ session, navigation }) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [handicapIndex, setHandicapIndex] = useState('')
+  const [golfBag, setGolfBag] = useState([])
   
 
   useEffect(() => {
     if (session) {
       getProfile()
+      getGolfBag()
     }
   }, [session])
 
@@ -52,6 +54,29 @@ export default function Clubhouse({ session, navigation }) {
     }
   }
 
+  async function getGolfBag(){
+    try{
+      const {data, error} = await supabase
+        .from('clubs')
+        .select(`*`)
+        .eq('player_id', session?.user.id)
+
+      if (error) {
+        throw error
+      }
+      else {
+        setGolfBag(data)
+        console.log(data)
+      }
+    }
+    catch (error) {
+      console.log(error)
+      if (error instanceof Error) {
+        Alert.alert(error.message)
+      }
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -72,8 +97,6 @@ export default function Clubhouse({ session, navigation }) {
           <Text>89.7</Text>
           <Text>avg</Text>
           </View>
-          
-          
         </View>
         
       </View>
