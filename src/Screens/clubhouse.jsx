@@ -3,6 +3,7 @@ import { Alert, StyleSheet, View, Text } from 'react-native'
 import React from 'react'
 import { supabase } from '../Supabase/supabase'
 import { useTheme } from 'react-native-paper'
+import RoundsView from '../components/roundsView'
 
 export default function Clubhouse({ session, navigation }) {
   
@@ -69,7 +70,7 @@ export default function Clubhouse({ session, navigation }) {
       }
       else {
         setGolfBag(data)
-        console.log(data)
+        //console.log(data)
       }
     }
     catch (error) {
@@ -92,7 +93,7 @@ export default function Clubhouse({ session, navigation }) {
       }
       else {
         setRounds(data)
-        console.log(data)
+        //console.log(data)
       }
     }
     catch (error) {
@@ -124,7 +125,7 @@ export default function Clubhouse({ session, navigation }) {
           <Text>avg</Text>
           </View>
         </View>
-        
+        <RoundsView rounds={rounds}/>
       </View>
       <Text>Bag</Text>
     </View>
