@@ -11,6 +11,20 @@ export default function Play({ session, navigation }) {
   return (
     <View style={styles.container}>
       <Text>Play</Text>
+      <Text>Need to add selector here</Text>
+      <Text>Screen divided down middle</Text>
+      <View>
+        <View>
+          <Text>Left</Text>
+          <Text>range mode</Text>
+        </View>
+        <View>
+          <Text>Right</Text>
+          <Text>9/18 hole course play</Text>
+        </View>
+        
+      </View>
+      
     </View>
   )
 }
